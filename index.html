@@ -1,0 +1,373 @@
+<!-- Design System -->
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+</body></html>
+            left: -150%;
+            width: 150%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                var(--shimmer-color) 20%,
+                var(--shimmer-highlight) 50%,
+                var(--shimmer-color) 80%,
+                transparent 100%
+            );
+            transform: skewX(-20deg);
+            animation: card-shimmer-anim 3s infinite;
+            pointer-events: none;
+            z-index: 10;
+            opacity: 0.5;
+        }
+
+        @keyframes shimmer {
+            100% { left: 200%; }
+        }
+
+        @keyframes card-shimmer-anim {
+            0% { left: -150%; }
+            50% { left: 150%; }
+            100% { left: 150%; }
+        }
+
+        /* Respect Prefers Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal-section {
+                transition: none;
+                opacity: 1;
+                transform: none;
+            }
+            .typewriter-cursor {
+                animation: none;
+            }
+            .progress-group:hover .progress-bar-fill::after {
+                animation: none;
+            }
+            .card-shimmer::before {
+                animation: none;
+                display: none;
+            }
+            .skeleton-pulse {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col font-body-sm relative selection:bg-primary-container selection:text-on-primary-container">
+<!-- Grid Background -->
+<div class="fixed inset-0 grid-bg pointer-events-none z-[-1]"></div>
+<!-- TopAppBar -->
+<header class="bg-surface/70 backdrop-blur-xl text-primary-container font-code-label text-code-label fixed top-0 w-full z-50 border-b border-outline-variant/30 hidden md:flex">
+<div class="flex justify-between items-center h-16 px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="font-display-lg text-primary tracking-tighter text-2xl">[DEV_LOGIC]</div>
+<nav class="flex gap-8">
+<a class="text-primary-fixed-dim font-bold border-b-2 border-primary-fixed-dim pb-1 scale-95 duration-200 ease-in-out hover:bg-primary/10 hover:outline hover:outline-1 hover:outline-primary/40 transition-all" href="#">Persona</a>
+<a class="text-on-surface-variant font-code-label hover:text-primary transition-colors scale-95 duration-200 ease-in-out hover:bg-primary/10 hover:outline hover:outline-1 hover:outline-primary/40 transition-all" href="#">Skills</a>
+<a class="text-on-surface-variant font-code-label hover:text-primary transition-colors scale-95 duration-200 ease-in-out hover:bg-primary/10 hover:outline hover:outline-1 hover:outline-primary/40 transition-all" href="#">Projects</a>
+<a class="text-on-surface-variant font-code-label hover:text-primary transition-colors scale-95 duration-200 ease-in-out hover:bg-primary/10 hover:outline hover:outline-1 hover:outline-primary/40 transition-all" href="#">Contact</a>
+</nav>
+<button class="bg-transparent border border-primary-container text-primary-container px-4 py-2 hover:bg-primary-container/10 transition-colors font-code-data text-code-data rounded flex items-center gap-2">
+                Connect <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</header>
+<!-- SideNavBar (Mobile) -->
+<div class="md:hidden bg-surface-container-lowest text-primary font-code-data text-code-data h-full w-64 fixed left-0 top-0 border-r border-outline-variant flex flex-col py-8 gap-unit z-50 transform -translate-x-full transition-transform" id="mobile-nav">
+<div class="px-4 mb-8">
+<div class="font-code-label text-primary-fixed text-lg mb-2">LC_PERSONA</div>
+<div class="text-xs text-on-surface-variant">Tzu Chi University</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="bg-secondary-container/20 text-secondary-fixed-dim border-l-4 border-secondary-fixed-dim px-4 py-3 flex items-center gap-3 transition-all duration-300 hover:backdrop-blur-sm hover:ring-1 hover:ring-primary/20" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span> Logic
+            </a>
+<a class="text-on-tertiary-fixed-variant px-4 py-3 hover:bg-surface-container-high flex items-center gap-3 transition-all duration-300 hover:backdrop-blur-sm hover:ring-1 hover:ring-primary/20" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span> Grammar
+            </a>
+<a class="text-on-tertiary-fixed-variant px-4 py-3 hover:bg-surface-container-high flex items-center gap-3 transition-all duration-300 hover:backdrop-blur-sm hover:ring-1 hover:ring-primary/20" href="#">
+<span class="material-symbols-outlined" data-icon="architecture">architecture</span> Synthesis
+            </a>
+<a class="text-on-tertiary-fixed-variant px-4 py-3 hover:bg-surface-container-high flex items-center gap-3 transition-all duration-300 hover:backdrop-blur-sm hover:ring-1 hover:ring-primary/20" href="#">
+<span class="material-symbols-outlined" data-icon="code">code</span> Source
+            </a>
+</nav>
+<div class="mt-auto px-4">
+<button class="w-full bg-transparent border border-on-surface-variant text-on-surface-variant px-4 py-2 hover:text-white hover:border-white transition-colors font-code-data text-code-data rounded flex justify-center items-center gap-2">
+                Download CV
+            </button>
+</div>
+</div>
+<!-- Mobile Nav Toggle -->
+<button class="md:hidden fixed top-4 left-4 z-[60] bg-surface p-2 border border-outline-variant text-on-surface rounded" onclick="document.getElementById('mobile-nav').classList.toggle('-translate-x-full')">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<main class="flex-grow pt-24 pb-32">
+<!-- Section 1: Hero -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop min-h-[716px] flex flex-col justify-center relative my-32">
+<div class="absolute inset-0 pointer-events-none opacity-20">
+<div class="w-full h-1 bg-surface-container-high absolute top-1/4 left-0"></div>
+<div class="w-1 h-full bg-surface-container-high absolute left-1/4 top-0"></div>
+</div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="col-span-1 md:col-span-8">
+<div class="font-code-label text-code-label text-secondary mb-6 flex items-center gap-2">
+<span class="w-8 h-[1px] bg-secondary inline-block"></span>
+                        INITIATING_SEQUENCE
+                    </div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6" data-text="LINGUIST by Day,&lt;br/&gt;CODER by Night." id="typewriter-headline">
+<!-- Content injected via JS -->
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-10">
+                        I bridge the gap between human language and machine logic. Currently parsing grammar and syntaxes at Tzu Chi University, while architecting digital structures in the dark.
+                    </p>
+<div class="flex gap-4">
+<button class="bg-transparent border border-primary-container text-primary-container px-6 py-3 font-code-data text-code-data rounded hover:bg-primary-container/10 transition-all hover:shadow-[0_0_15px_rgba(0,240,255,0.3)] relative overflow-hidden group">
+<span class="relative z-10 flex items-center gap-2">
+                                Run_Protocol <span class="material-symbols-outlined text-sm">play_arrow</span>
+</span>
+</button>
+</div>
+</div>
+<div class="col-span-1 md:col-span-4 hidden md:flex items-center justify-center">
+<div class="w-full h-64 border border-outline-variant/30 glass-panel relative p-4 flex flex-col justify-between">
+<div class="font-code-label text-code-label text-on-surface-variant opacity-50">[SYSTEM_STATUS]</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></div>
+<span class="font-code-data text-code-data text-on-surface">Syntax: ONLINE</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-2 h-2 rounded-full bg-secondary animate-pulse" style="animation-delay: 0.2s"></div>
+<span class="font-code-data text-code-data text-on-surface">Logic: ONLINE</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse" style="animation-delay: 0.4s"></div>
+<span class="font-code-data text-code-data text-on-surface">Coffee: DEPLETED</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Skills Terminal -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop my-32 reveal-section">
+<div class="font-code-label text-code-label text-on-surface-variant mb-4">[MODULE_02_SKILLS]</div>
+<div class="border border-surface-container-high bg-surface-container-lowest rounded-lg overflow-hidden glass-panel">
+<!-- Terminal Header -->
+<div class="bg-surface-container-high px-4 py-2 border-b border-surface-container flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-error-container"></div>
+<div class="w-3 h-3 rounded-full bg-outline-variant"></div>
+<div class="w-3 h-3 rounded-full bg-primary-container/50"></div>
+<span class="font-code-label text-code-label text-on-surface-variant ml-4">root@lc_persona:~# ./skills.sh</span>
+</div>
+<!-- Terminal Body -->
+<div class="p-6 md:p-8 font-code-data text-code-data text-on-surface space-y-8">
+<!-- Python Skill -->
+<div class="space-y-2 progress-group cursor-default">
+<div class="flex justify-between text-secondary">
+<span>&gt; Analyzing Python_Proficiency...</span>
+<span>[85%]</span>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[85%] relative progress-bar-fill text-secondary">
+<div class="absolute inset-0 bg-white/20 skeleton-pulse"></div>
+</div>
+</div>
+</div>
+<!-- JS Skill -->
+<div class="space-y-2 progress-group cursor-default">
+<div class="flex justify-between text-primary-container">
+<span>&gt; Executing JavaScript_Logic...</span>
+<span>[70%]</span>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[70%] relative progress-bar-fill text-primary-container">
+<div class="absolute inset-0 bg-white/20 skeleton-pulse"></div>
+</div>
+</div>
+</div>
+<!-- HTML/CSS Skill -->
+<div class="space-y-2 progress-group cursor-default">
+<div class="flex justify-between text-on-surface">
+<span>&gt; Rendering DOM_Structures...</span>
+<span>[90%]</span>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-on-surface w-[90%] relative progress-bar-fill text-on-surface">
+<div class="absolute inset-0 bg-white/20 skeleton-pulse"></div>
+</div>
+</div>
+</div>
+<div class="pt-4 text-outline animate-pulse">
+                        &gt; Awaiting further input_ <span class="inline-block w-2 h-4 bg-outline ml-1 align-middle"></span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Education Timeline -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop my-32 reveal-section">
+<div class="font-code-label text-code-label text-on-surface-variant mb-12">[MODULE_03_TIMELINE]</div>
+<div class="relative border-l border-surface-container-high ml-4 md:ml-0 md:border-l-0">
+<!-- Desktop timeline line -->
+<div class="hidden md:block absolute top-0 bottom-0 left-1/2 w-px bg-surface-container-high transform -translate-x-1/2"></div>
+<div class="space-y-16">
+<!-- Timeline Item 1 -->
+<div class="relative flex flex-col md:flex-row items-center justify-between group">
+<div class="hidden md:flex w-5/12 justify-end pr-8 text-right">
+<div class="font-code-data text-code-data text-primary-container">2021 - Present</div>
+</div>
+<!-- Node -->
+<div class="absolute left-[-5px] md:left-1/2 w-2 h-2 md:w-3 md:h-3 rounded-full bg-surface-container-high border-2 border-primary-container md:transform md:-translate-x-1/2 z-10 group-hover:bg-primary-container transition-colors shadow-[0_0_10px_rgba(0,240,255,0.5)]"></div>
+<div class="w-full md:w-5/12 pl-8 md:pl-8">
+<div class="md:hidden font-code-data text-code-data text-primary-container mb-2">2021 - Present</div>
+<div class="border border-surface-container-high p-6 glass-panel group-hover:border-primary-container/30 transition-colors">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Tzu Chi University</h3>
+<div class="font-code-label text-code-label text-secondary mb-4">Dept. of Foreign Languages &amp; Literature</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                                     Exploring the intricacies of human communication, literature, and linguistic structures while autonomously integrating computational methods into language analysis.
+                                 </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Interactive Gallery (Projects) -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop my-32 reveal-section">
+<div class="font-code-label text-code-label text-on-surface-variant mb-12">[MODULE_04_SYNTHESIS]</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="border border-surface-container-high bg-surface-container-low p-6 glass-panel hover:glow-border transition-all duration-300 group card-shimmer">
+<div class="font-code-label text-code-label text-on-surface-variant mb-4">[PROJECT_01]</div>
+<div class="w-full h-40 bg-surface-container-highest mb-6 relative overflow-hidden border border-outline-variant/20">
+<div class="bg-cover bg-center w-full h-full opacity-50 group-hover:opacity-80 transition-opacity" data-alt="A macro shot of a glowing mechanical keyboard in a dark room, illuminated by cyan and purple neon lights, signifying a hacker or coder aesthetic, highly detailed, dramatic lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAYepJf_wB3TjA4wzuOI77Eu2779v-f4jqD7EC0j0Fp5G8sUA28vtJCYnbJ9xx9vkm4pOt37aBJXGU9ginWDOPgpwW9SMGxuciXeKaGgSlbvIzirZBGFTeCD99GSXqYL7LYB-CqZ0GhPNqHbLM2iHcW7t8CHvrX2CBf85tREOt6oWibLHXu38KWKwLTd7oimyw75TVr3LY22p-vLbKnRD8DIod2TuuJHTTB4SsK5kY5pBqtS-hz-5S0')"></div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 text-xl">Semantic Parser</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6 h-12 overflow-hidden">
+                        A Python-based tool mapping grammatical structures to logical expressions.
+                    </p>
+<div class="flex gap-2">
+<span class="px-2 py-1 border border-primary-container/30 text-primary-container font-code-label text-[10px] uppercase">Python</span>
+<span class="px-2 py-1 border border-secondary/30 text-secondary font-code-label text-[10px] uppercase">Linguistics</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="border border-surface-container-high bg-surface-container-low p-6 glass-panel hover:glow-border transition-all duration-300 group card-shimmer">
+<div class="font-code-label text-code-label text-on-surface-variant mb-4">[PROJECT_02]</div>
+<div class="w-full h-40 bg-surface-container-highest mb-6 relative overflow-hidden border border-outline-variant/20">
+<div class="bg-cover bg-center w-full h-full opacity-50 group-hover:opacity-80 transition-opacity" data-alt="Abstract visualization of data flowing through a network, resembling glowing wireframes and structural grids against a deep black background, technical and precise." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDXOBQWbnhoee9CWFgFZlhGbLcjqZZwj_t2FfKNpLnG9MzPEs_XowLXwItk_Rxl-LLXMh9V7vtbFyDCeTYfxd-lx5jFgGas6VEa46ZFHx_mdwXIRYC4yn5nSFKtMmoWdMpOJCb_b-7w32fN6rkStyyrq7LDt68NR_CpvWR9c07ED81x9HAXa-aNh8rON6bqcFj-4F9YAsOKNfrh_XV0t2bV7NT-bRVkozKcfoLOl2-y7fTeaXE5dTNf')"></div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 text-xl">Corpus Visualizer</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6 h-12 overflow-hidden">
+                        Web interface for analyzing literary frequencies using D3.js and raw text.
+                    </p>
+<div class="flex gap-2">
+<span class="px-2 py-1 border border-primary-container/30 text-primary-container font-code-label text-[10px] uppercase">JavaScript</span>
+<span class="px-2 py-1 border border-outline-variant/50 text-outline font-code-label text-[10px] uppercase">D3.js</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="border border-surface-container-high bg-surface-container-low p-6 glass-panel hover:glow-border transition-all duration-300 group md:col-span-2 lg:col-span-1 card-shimmer">
+<div class="font-code-label text-code-label text-on-surface-variant mb-4">[PROJECT_03]</div>
+<div class="w-full h-40 bg-surface-container-highest mb-6 relative overflow-hidden border border-outline-variant/20 flex items-center justify-center">
+<div class="skeleton-pulse w-3/4 h-4 mb-2"></div>
+<div class="skeleton-pulse w-1/2 h-4 absolute top-1/2 mt-4"></div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2 text-xl">In Progress...</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6 h-12 overflow-hidden">
+                        Compiling dependencies for the next structural exploration.
+                    </p>
+<div class="flex gap-2">
+<span class="px-2 py-1 border border-outline-variant/50 text-outline font-code-label text-[10px] uppercase">Awaiting_Input</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background text-on-surface-variant font-code-label text-code-label w-full py-12 px-margin-desktop border-t border-outline-variant/20 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto gap-6 md:gap-0">
+<div class="font-code-data text-tertiary-fixed-dim">
+                © 2024 LINGUIST_CODER.PROCESS_INITIATED
+            </div>
+<nav class="flex gap-6">
+<a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors hover:text-primary-container opacity-80 hover:opacity-100 transition-opacity" href="#">Source Code</a>
+<a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors hover:text-primary-container opacity-80 hover:opacity-100 transition-opacity" href="#">Research Gate</a>
+<a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors hover:text-primary-container opacity-80 hover:opacity-100 transition-opacity" href="#">Academic Archive</a>
+</nav>
+</div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Respect prefers-reduced-motion
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!prefersReducedMotion) {
+            // Typewriter Animation
+            const headline = document.getElementById('typewriter-headline');
+            const fullText = headline.getAttribute('data-text');
+            headline.innerHTML = '<span class="typewriter-cursor">_</span>';
+            
+            let i = 0;
+            let isTag = false;
+            let textBuffer = '';
+
+            function typeWriter() {
+                if (i < fullText.length) {
+                    if (fullText.charAt(i) === '<') {
+                        isTag = true;
+                    }
+                    textBuffer += fullText.charAt(i);
+                    if (fullText.charAt(i) === '>') {
+                        isTag = false;
+                    }
+
+                    if (!isTag) {
+                        headline.innerHTML = textBuffer + '<span class="typewriter-cursor">_</span>';
+                        // Add some randomness to typing speed to feel more human
+                        setTimeout(typeWriter, Math.random() * 50 + 50);
+                    } else {
+                        // Type tags instantly
+                        setTimeout(typeWriter, 0);
+                    }
+                    i++;
+                }
+            }
+            // Start typewriter after a short delay
+            setTimeout(typeWriter, 500);
+
+            // Scroll Reveal Animation via IntersectionObserver
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-revealed');
+                        observer.unobserve(entry.target); // Reveal only once
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-section').forEach(section => {
+                observer.observe(section);
+            });
+        } else {
+            // Fallback for reduced motion: instantly show text and sections
+            const headline = document.getElementById('typewriter-headline');
+            headline.innerHTML = headline.getAttribute('data-text');
+            
+            document.querySelectorAll('.reveal-section').forEach(section => {
+                section.style.opacity = '1';
+                section.style.transform = 'none';
+            });
+        }
+    });
+</script>
+</body></html>
