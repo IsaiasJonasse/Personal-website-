@@ -20,11 +20,11 @@
         <a class="text-primary-fixed-dim font-bold border-b-2 border-primary-fixed-dim pb-1 scale-95 duration-200 ease-in-out hover:bg-primary/10 hover:outline hover:outline-1 hover:outline-primary/40 transition-all" href="#hero">Home</a>
         <a class="text-on-surface-variant font-code-label hover:text-primary transition-colors scale-95 duration-200 ease-in-out hover:bg-primary/10 hover:outline hover:outline-1 hover:outline-primary/40 transition-all" href="#skills">Skills</a>
         <a class="text-on-surface-variant font-code-label hover:text-primary transition-colors scale-95 duration-200 ease-in-out hover:bg-primary/10 hover:outline hover:outline-1 hover:outline-primary/40 transition-all" href="#projects">Projects</a>
-        <a class="text-on-surface-variant font-code-label hover:text-primary transition-colors scale-95 duration-200 ease-in-out hover:bg-primary/10 hover:outline hover:outline-1 hover:outline-primary/40 transition-all" href="#footer">Contact</a>
+        <a class="text-on-surface-variant font-code-label hover:text-primary transition-colors scale-95 duration-200 ease-in-out hover:bg-primary/10 hover:outline hover:outline-1 hover:outline-primary/40 transition-all" href="#contact">Contact</a>
       </nav>
-      <button class="bg-transparent border border-primary-container text-primary-container px-4 py-2 hover:bg-primary-container/10 transition-colors font-code-data text-code-data rounded flex items-center gap-2">
+      <a href="#contact" class="bg-transparent border border-primary-container text-primary-container px-4 py-2 hover:bg-primary-container/10 transition-colors font-code-data text-code-data rounded inline-flex items-center gap-2">
         Email <span class="material-symbols-outlined text-sm">mail</span>
-      </button>
+      </a>
     </div>
   </header>
 
@@ -212,6 +212,43 @@
       </div>
     </section>
   </main>
+
+  <section id="contact" class="bg-surface-container-lowest border-t border-outline-variant/20 py-20">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        <div class="space-y-6">
+          <div class="font-code-label text-code-label text-secondary uppercase tracking-[0.35em]">Contact</div>
+          <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary">Send Me Your Message</h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+            Leave your name, email, and a brief message so I can understand your needs and respond quickly.
+          </p>
+          <div class="space-y-3 text-on-surface-variant">
+            <p><strong>Email:</strong> isaias.jonasse2004@gmail.com</p>
+            <p><strong>Available for:</strong> web projects, UI/UX design, and language-focused applications.</p>
+          </div>
+        </div>
+        <div>
+          <form action="mailto:isaias.jonasse2004@gmail.com" method="post" encType="text/plain" class="space-y-4 bg-surface border border-outline-variant/30 rounded-3xl p-6 glass-panel">
+            <div>
+              <label class="block mb-2 text-sm font-medium text-on-surface-variant" for="name">Name</label>
+              <input id="name" name="Name" type="text" required class="w-full rounded-2xl border border-surface-container-high bg-surface-container p-4 text-on-surface outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20" />
+            </div>
+            <div>
+              <label class="block mb-2 text-sm font-medium text-on-surface-variant" for="email">Email</label>
+              <input id="email" name="Email" type="email" required class="w-full rounded-2xl border border-surface-container-high bg-surface-container p-4 text-on-surface outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20" />
+            </div>
+            <div>
+              <label class="block mb-2 text-sm font-medium text-on-surface-variant" for="message">Message</label>
+              <textarea id="message" name="Message" rows="6" required class="w-full rounded-2xl border border-surface-container-high bg-surface-container p-4 text-on-surface outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20"></textarea>
+            </div>
+            <button type="submit" class="w-full inline-flex items-center justify-center bg-primary-container text-on-primary-container px-6 py-4 rounded-2xl font-bold hover:bg-primary-container/90 transition-all">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer id="footer" class="bg-background text-on-surface-variant font-code-label text-code-label w-full py-12 px-margin-desktop border-t border-outline-variant/20 mt-auto">
     <div class="flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto gap-6 md:gap-0">
