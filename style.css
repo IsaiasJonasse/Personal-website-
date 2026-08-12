@@ -62,6 +62,33 @@ body.no-scroll {
     background-size: 24px 24px;
 }
 
+.wave-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    margin-top: -2px;
+}
+
+.wave-wrapper svg {
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 140px;
+}
+
+.wave {
+    fill: url(#gradient-wave);
+    opacity: 0.85;
+}
+
+.wave-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(12, 17, 19, 0.35), transparent 65%);
+    pointer-events: none;
+}
+
 /* Material Symbols Fill Configuration */
 .material-symbols-outlined[data-weight="fill"] {
     font-variation-settings: 'FILL' 1;
